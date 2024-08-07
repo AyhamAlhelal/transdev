@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
 require('dotenv').config();
 
-// const { EMAIL, PASSWORD } = require('../env.js')
+// const { EMAIL, PASSWORD } = require('../env.js') 
 const EMAIL= process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
 const SENDER_NAME= process.env.SENDER;
