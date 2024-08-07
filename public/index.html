@@ -1,0 +1,453 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Transdev the mobility company</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="styling.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+
+
+    <style>
+        body {
+            background-color: #47748a;
+        }
+        form {
+            /* background: #fff; */
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+        /* form:hover {
+            transform: translateY(-10px);
+        } */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            /* color: #333; */
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            /* color: #555; */
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .checkbox-group label {
+            font-weight: normal;
+            /* color: #333; */
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #about{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+        }
+
+        #about>div{
+            text-align: center
+        }
+        #dateField{
+                color: black;
+            }
+        #travleDateField{
+            color: black;
+        }
+
+        #home > div > h1{
+            margin-bottom: 20vh;
+        }
+
+        #home > div > p{
+            margin-bottom: 40vh;
+        }
+
+        #comment{
+        color: black;
+        }
+        #busNumber{
+            color: black;
+        }
+
+        .status-message {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .approved {
+            color: green;
+        }
+        .not-approved {
+            color: red;
+        }
+
+
+        @media (min-width: 768px) {
+        .text_color{
+            /* color: white; */
+         }
+         #main_title{
+            /* color: white; */
+         }
+        
+        }
+
+
+        @media screen and (max-width: 768px) {
+        .text_color{
+            /* color: black; */
+         }
+
+         #main_title{
+            margin-top: 5vh;
+            padding-top: 10vh;
+            /* color: black; */
+        }
+
+        .checkbox-group{
+                gap: 10px;
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+        }
+
+
+        @media screen and (max-width: 344px) {
+            .checkbox-group{
+                gap: 3px;
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+    </style>
+  </head>
+  <body data-spy="scroll" data-target="#mynavBar">
+     <!--Add video to the body element-->
+      <video autoplay loop muted id="bgvideo">
+          <source src="images/nature%20video.mp4" type="video/mp4">
+      </video>
+      
+      <!--Create navigation bar with scrollspy-->
+      <nav role="navigation" class="navbar navbar-custom navbar-fixed-top" id="mynavBar">
+        
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <a class="navbar-brand"><img src="images/w2-logo.webp" alt="Transdev the mobility company" width="70vh" ></a>
+                  <button type="button" class="navbar-toggle" data-target="#navbarCollapse" data-toggle="collapse">
+                      <span class="sr-only text_color">Toggle navigation</span>      
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+              </div>
+              <div class="navbar-collapse collapse" id="navbarCollapse">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="active"><a href="#home">Hemsida</a></li>
+                      <li><a href="#about">Rapportera</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+      
+      <!--Create the home section with title, goal and joins us button-->
+      <div class="jumbotron" id="home">
+          <div class="container">
+              <h1 class="text_color" id="main_title">Transdev the mobility company</h1>
+              <h2 class="text_color">Checklista för YTL Malmö</h2>
+              <p><a class="btn" href="#about">Skicka en rapport!</a></p>
+          </div>
+      </div>
+      
+      <!--Create about section showing course details using grid system-->
+      <div id="about" class="container-fluid">
+          
+                            <div class="form-group">
+          
+                                <form id="busForm">
+                                    <h2 class="text_color">Formulär för att rapportera</h2>
+                            
+                                    <label for="busNumber" class="text_color">Bil Nummer (Format: ABC123):</label>
+                                    <input type="text" id="busNumber" maxlength="6" pattern="[A-Za-z]{3}[0-9]{3}" required title="The format should be ABC123, where ABC are letters and 123 are numbers.">
+                                    <br><br>
+                                    <label for="dateField" class="text_color">Kontrolldatum</label>
+                                    <input type="date" id="dateField" required>
+                                    <label for="travleDateField" class="text_color">Resedatum</label>
+                                    <input type="date" id="travleDateField" required>
+                                    <br><br>
+                                    <label class="text_color">Problem:</label>
+                                    <div class="checkbox-group">
+                                        <label class="text_color"><input type="checkbox" name="problem" value="Motorn Startad"> Motorn Startad</label>
+                                        <label class="text_color"><input type="checkbox" name="problem" value="Tvätt och städ"> Tvätt och städ</label>
+                                        <label class="text_color"><input type="checkbox" name="problem" value="Tankad"> Tankad</label>
+                                        <label class="text_color"><input type="checkbox" name="problem" value="Skador/Däck"> Skador/Däck</label>
+                                        <label class="text_color"><input type="checkbox" name="problem" value="Infotainmentskärmar"> Infotainmentskärmar</label>
+                                        <label class="text_color"><input type="checkbox" name="problem" value="VIS/VoIP"> VIS/VoIP</label>
+                                        <label class="text_color"><input type="checkbox" name="problem" value="Validator"> Validator</label>
+                                        <label class="text_color"><input type="checkbox" name="problem" value="Kontroll rampkoppling"> Kontroll rampkoppling</label>
+                                        <label class="text_color"><input type="checkbox" name="problem" value="Andra"> Andra</label>
+                                    </div>
+                                    <input type="hidden" id="approvalStatus" name="approvalStatus" value="godkänd">
+                                    <div id="statusMessage" class="status-message approved">godkänd</div>
+                                    <label class="text_color" for="comment">Kommentarer:</label>
+                                    <textarea id="comment" disabled></textarea>
+                                    <button type="submit">Skicka</button>
+                                </form>
+                            </div>
+      </div>
+      
+      
+      <!--Add a footer for our website-->
+      <div class="footer">
+          <div class="container">
+              <p>&copy;Develop with Ayham.</p>
+          </div>
+      </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+            $('.carousel').carousel({
+                interval: 10000
+            }); 
+        });
+    </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('busForm');
+                const busNumberField = document.getElementById('busNumber');
+                const dateField = document.getElementById('dateField');
+                const travleDateField = document.getElementById('travleDateField');
+                const commentField = document.getElementById('comment');
+                const checkboxes = document.querySelectorAll('input[name="problem"]');
+                const submitButton = form.querySelector('button[type="submit"]');
+                const approvalStatusField = document.getElementById('approvalStatus');
+                const statusMessage = document.getElementById('statusMessage');
+
+
+                let emailGroups = {};
+                let APPROVAL_NAME = "";
+                let APPROVAL_EMAIL = "";
+                let EMAIL_GROUP_1 = "";
+                let EMAIL_GROUP_2 = "";
+                let EMAIL_GROUP_3 = "";
+                let NAME_GROUP_1 = "";
+                let NAME_GROUP_2 = "";
+                let NAME_GROUP_3 = "";
+                let keys = "";
+                        
+
+
+            // Function to fetch config data
+            function fetchConfig() {
+                fetch('/config')
+                    .then(response => response.json())
+                    .then(data => {
+                        APPROVAL_EMAIL = data.APPROVAL_EMAIL;
+                        APPROVAL_NAME = data.APPROVAL_NAME;
+                        EMAIL_GROUP_1 = data.EMAIL_GROUP_1;
+                        EMAIL_GROUP_2 = data.EMAIL_GROUP_2;
+                        EMAIL_GROUP_3 = data.EMAIL_GROUP_3;
+                        NAME_GROUP_1 = data.NAME_GROUP_1;
+                        NAME_GROUP_2 = data.NAME_GROUP_2;
+                        NAME_GROUP_3 = data.NAME_GROUP_3;
+                        emailGroups[EMAIL_GROUP_1] = NAME_GROUP_1;
+                        emailGroups[EMAIL_GROUP_2] = NAME_GROUP_2;
+                        emailGroups[EMAIL_GROUP_3] = NAME_GROUP_3;
+                        keys = Object.keys( emailGroups );
+                    })
+                    .catch(error => console.error('Error fetching config:', error));
+            }
+
+            // Fetch config data on page load
+            fetchConfig();
+
+
+                  // Function to update status message
+            function updateStatusMessage() {
+                const isAnyCheckboxChecked = Array.from(checkboxes).some(cb => cb.checked);
+                approvalStatusField.value = isAnyCheckboxChecked ? "ej godkänd" : "godkänd";
+                if (isAnyCheckboxChecked) {
+                    statusMessage.textContent = "ej godkänd";
+                    statusMessage.classList.remove("approved");
+                    statusMessage.classList.add("not-approved");
+                } else {
+                    statusMessage.textContent = "godkänd";
+                    statusMessage.classList.remove("not-approved");
+                    statusMessage.classList.add("approved");
+                }
+            }
+
+             // Initialize status message
+             updateStatusMessage();
+
+    
+                // Enable/disable and require comment field based on checkbox selection
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        const isAnyCheckboxChecked = Array.from(checkboxes).some(cb => cb.checked);
+                        commentField.disabled = !isAnyCheckboxChecked;
+                        commentField.required = isAnyCheckboxChecked; // Make comment required if any checkbox is checked
+                        updateStatusMessage(); // Update status message
+                    });
+                });
+    
+                // Form submit handler
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent the form from submitting the traditional way
+    
+                    // Validate bus number
+                    const busNumber = busNumberField.value;
+                    const busNumberPattern = /^[A-Za-z]{3}[0-9]{3}$/;
+                    if (!busNumberPattern.test(busNumber)) {
+                        alert('Please enter a valid bus number (ABC123).');
+                        return;
+                    }
+    
+                    // Collect the date
+                    const date = dateField.value;
+                    if (!date) {
+                        alert('Please select a date.');
+                        return;
+                    }
+
+                        // Collect the date
+                        const travleDate = travleDateField.value;
+                    if (!travleDate) {
+                        alert('Please select a travle date.');
+                        return;
+                    }
+    
+                    // Collect the comment
+                    const comment = commentField.value;
+                    if (commentField.required && comment.trim() === '') {
+                        alert('Comment is required if at least one problem is selected.');
+                        return;
+                    }
+
+                      // Collect checked problems
+                const checkedProblems = Array.from(checkboxes)
+                    .map((cb, index) => ({ index, value: cb.value, checked: cb.checked }))
+                    .filter(cb => cb.checked);
+
+                const approvalStatus = approvalStatusField.value;
+    
+                    // Determine recipient emails based on checked checkboxes
+
+                    const groups = [
+                        { range: [0, 2], email: keys[0] },
+                        { range: [3, 5], email: keys[1] },
+                        { range: [6, 8], email: keys[2] }
+                    ];
+
+                    // If approved, send email to the approval email
+                if (approvalStatus === "godkänd") {
+                    sendEmail( APPROVAL_EMAIL , APPROVAL_NAME, busNumber, date, [],  '', travleDate, approvalStatus );
+                } else {
+                    // Determine recipient emails based on checked checkboxes
+
+                    groups.forEach(group => {
+                        const problemsForEmail = checkedProblems
+                            .filter(cb => cb.index >= group.range[0] && cb.index <= group.range[1])
+                            .map(cb => cb.value);
+
+                            console.log( group.email );
+                            console.log( emailGroups[group.email] );
+                        if (problemsForEmail.length > 0) {
+                            sendEmail(group.email, emailGroups[group.email], busNumber, date, problemsForEmail, comment , travleDate, approvalStatus );
+                        }
+                    });
+                }
+
+
+
+
+
+
+    
+                    // Reset the form after submission
+                    form.reset();
+                    commentField.disabled = true;
+                });
+    
+    
+                // Function to send email via POST request to the server
+                function sendEmail( recipient_email, recipient_name, busNumber, date, problems, comment , travleDate , approvalStatus) {
+                    fetch('http://localhost:5000', {  // URL of your server's endpoint 
+                        method: 'POST',  // HTTP method   http://localhost:${PORT}`  https://cool-kataifi-b1b0c8.netlify.app/api/send_email)  
+                        headers: {
+                            'Content-Type': 'application/json'  // Specify that we're sending JSON
+                        },
+                        body: JSON.stringify({  // Convert the data to a JSON string
+                            recipient_email: recipient_email,
+                            recipient_name: recipient_name,
+                            busNumber: busNumber,  // Include the bus number
+                            date: date,            // Include the date
+                            problems: problems,
+                            comment: comment,
+                            travleDate: travleDate,
+                            approvalStatus: approvalStatus
+                        })
+                    })
+                    .then(response => response.text())  // Parse the response as text
+                    .then(data => {
+                        alert('Success: ' + data);  // Display a success message
+                    })
+                    .catch(error => {
+                        alert('Error: ' + error);  // Display an error message if something goes wrong
+                    });
+                }   
+            });
+    
+        </script>
+  </body>
+</html>
